@@ -1,5 +1,5 @@
 ---
-theme: "simple"
+css: "simple_jk.css"
 transition: "slide"
 highlightTheme: "github"
 slideNumber: false
