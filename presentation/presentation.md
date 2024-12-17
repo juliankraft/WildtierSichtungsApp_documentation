@@ -3,13 +3,19 @@ css: "simple_jk.css"
 transition: "slide"
 highlightTheme: "github"
 slideNumber: false
-title: "WildtierApp - Präsentation"
+title: "App zur Erfassung von Wildtiersichtungen"
+---
+
+<img src="images/logo_app.png" style="width: 30%;">
+
+## App zur Erfassung von Wildtiersichtungen
+
 ---
 
 ## Inhalt
 
 * Idee
-* Programmiersprache und Frameworks
+* Programmiersprachen und Frameworks
 * Prototyp
 * Challenges
 * Ausblick
