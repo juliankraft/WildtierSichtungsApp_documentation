@@ -80,7 +80,8 @@ WildTierSichtungsApp
 Note:
 Das Frontend wurde mit dem **Ionic Framework** entwickelt.  
 Ionic ermöglicht die Erstellung von Cross-Platform-Apps für iOS und Android.  
-Es basiert auf **HTML, CSS und JavaScript**.
+Es basiert auf **HTML, CSS und JavaScript**, 
+wobei **TypeScript** für eine bessere Codequalität und Typensicherheit sorgt.
 
 ----
 
