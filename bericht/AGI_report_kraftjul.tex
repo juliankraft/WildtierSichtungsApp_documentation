@@ -35,9 +35,13 @@
                                % in the bibliography
                                
 % Customize citation number color
-\usepackage{xcolor} % Ensure xcolor is loaded
-\DeclareFieldFormat{biblabel}{\textcolor{blue}{[#1]}} % Set citation color to blue
-\renewcommand*{\mkbibbrackets}[1]{\textcolor{black}{[#1]}} % Ensure brackets are also black
+\usepackage{xcolor} % Load xcolor for color customization
+
+% Change the color of citation numbers and brackets in text
+\renewcommand*{\mkbibbrackets}[1]{\textcolor{blue}{[#1]}} % Brackets and numbers in blue
+
+% Change the color of numbers in the bibliography
+\DeclareFieldFormat{labelnumber}{\textcolor{blue}{#1}}
 
 
 \usepackage[german]{babel}     % Set the document language to German                               
@@ -176,5 +180,7 @@ Danke an Annalisa Berger für das Design des Logos.
 
 Zum Erstellen dieses Dokumentes wurde ChatGPT und GitHub copilot verwendet.
 Auch bei der Programmierung des Prototyps kam vie AI zum Einsatz.
+
+\printbibliography
 
 \end{document}
