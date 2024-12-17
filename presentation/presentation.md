@@ -16,6 +16,9 @@ title: "WildtierApp - Präsentation"
 * Acknowledgements
 * Links
 
+Note:
+kurz den inhalt vorstellen
+
 ---
 
 ## Idee
@@ -58,11 +61,20 @@ WildTierSichtungsApp
 
 ----
 
+## Programmiersprache und Frameworks
+
+----
+
 ### Frontend
 
 <img src="images/ionic.png" style="width: 70%; margin-bottom: -50px;">
 
 <span style="font-size: 0.4em;">*Abbildung: von <a href="https://github.com/ionic-team/ionic-framework" target="_blank">https://github.com/ionic-team/ionic-framework</a>*</span>
+
+Note:
+Das Frontend wurde mit dem **Ionic Framework** entwickelt.  
+Ionic ermöglicht die Erstellung von Cross-Platform-Apps für iOS und Android.  
+Es basiert auf **HTML, CSS und JavaScript**.
 
 ----
 
@@ -72,6 +84,11 @@ WildTierSichtungsApp
 
 <span style="font-size: 0.4em;">*Abbildung: <a href="https://go.dev/blog/go-brand" target="_blank">https://go.dev/blog/go-brand</a>*</span>
 
+Note:
+Das Backend wurde in **Go (Golang)** programmiert.  
+Go ist effizient, schnell und eignet sich hervorragend für REST-APIs.  
+Es sorgt für **skalierbare und performante Anwendungen**.
+
 ----
 
 ### WebMap
@@ -80,6 +97,10 @@ WildTierSichtungsApp
 
 <span style="font-size: 0.4em;">*Abbildung: <a href="https://en.m.wikipedia.org/wiki/File:Google_Maps_Logo_2020.svg" target="_blank">https://en.m.wikipedia.org</a>*</span>
 
+Note:
+Die **Google Maps API** visualisiert die Wildtiersichtungen auf einer Karte.  
+Sie bietet Funktionen wie Marker, Routenplanung und Geocoding.
+
 ----
 
 ### Datenbank
@@ -87,6 +108,11 @@ WildTierSichtungsApp
 <img src="images/mariadb.png" style="width: 40%; margin-bottom: -50px;">
 
 <span style="font-size: 0.4em;">*Abbildung: <a href="https://github.com/mariadb-corporation" target="_blank">https://github.com/mariadb-corporation</a>*</span>
+
+Note:
+Die Daten werden in **MariaDB** gespeichert.  
+MariaDB ist schnell, zuverlässig und eignet sich für relationale Datenbanken.  
+Hier liegen die Wildtiersichtungen und weitere App-Daten.
 
 ---
 
