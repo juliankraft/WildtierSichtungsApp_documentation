@@ -26,12 +26,19 @@
 \usepackage[
     backend=biber,             % Use biber backend (an external tool)
     sorting=none,              % Enumerates the reference in order of their appearance
-    style=authoryear           % Choose here your preferred citation style
+    style=numeric           % Choose here your preferred citation style
 ]{biblatex}
-\addbibresource{bibliography.bib} % The filename of the bibliography
+\addbibresource{agi_projekt.bib} % The filename of the bibliography
+
 \usepackage[autostyle=true]{csquotes} 
                                % Required to generate language-dependent quotes 
                                % in the bibliography
+                               
+% Customize citation number color
+\usepackage{xcolor} % Ensure xcolor is loaded
+\DeclareFieldFormat{biblabel}{\textcolor{blue}{[#1]}} % Set citation color to blue
+\renewcommand*{\mkbibbrackets}[1]{\textcolor{black}{[#1]}} % Ensure brackets are also black
+
 
 \usepackage[german]{babel}     % Set the document language to German                               
 
@@ -76,22 +83,19 @@
 \usepackage{tcolorbox}
 
 %%%%% Title %%%%%
-\title{Individuelle Applikation zur georeferenzierten Datenerfassung}
+\title{WebApp zur Erfassung von Wildtiersichtungen}
 
 \begin{document}
 
 %%%%% Header %%%%%
 \begin{textblock}{1}(2.5,1) % Position 1cm from left and 1cm from top
-        \includegraphics[width=6cm]{logo.jpg} % Add logo
+        \includegraphics[width=6cm]{images/logo.jpg} % Add logo
 \end{textblock}
 
 \begin{textblock}{6}(13,1) % Position 14cm from left and 1cm from top
         \raggedleft
-        Annalisa Berger,
-        Jonas Iseli, \\
-        Pascal Kipf,
-        Julian Kraft\\
-        Digitale Agrodiagnostik\\
+        Julian Kraft UI22\\
+        Angewandte Geoinformatik\\
         \today
 \end{textblock}
 
@@ -104,182 +108,71 @@
 \tableofcontents
 
 
-\section{Idee} %%%%%
+\section{Einleitung} %%%%%
 
-Das Erfassen von georeferenzierten Daten ist eine häufige Aufgabe bei Forschung im Bereich 
-Umweltnaturwissenschaften. Leider werden dabei noch oft Papier und Stift verwendet, was
-die spätere Auswertung und Verarbeitung der Daten erschwert. Die Idee ist es, einen Bausatz für Applikationen
-zu entwickeln, der es ermöglicht, massgeschneiderte Applikationen für die georeferenzierte Datenerfassung
-zu erstellen. Die Applikation soll es ermöglichen, georeferenzierte Daten direkt auf dem Feld mit dem Smartphone
-zu erfassen. Die Georeferenzierung soll dabei automatisch mit Hilfe des GPS-Moduls des Smartphones
-erfolgen. Die Daten sollen in einer eigenen Datenbank gespeichert werden, um die Datensicherheit zu gewährleisten.
+Im Zentrum jedes Projekts mit Geodaten stehen die Daten. Wenn man diese noch nicht hat, geht es darum eine
+geeignete Methode zu finden, um diese zu erfassen. Im Bereich Umweltnaturwissenschaften sind das noch
+immer oft manuell erhobene Daten. Auch diese Feldarbeit kann jedoch durch den Einsatz von Technologie
+vereinfacht werden. Ein geeignetes Tool dafür besitzt so ziemlich jeder - das Smartphone.
+Eine kurze Online-Recherche zeigt, dass es bereits viele Apps gibt, die das können. Jedoch sind diese
+oft relativ teuer, können viel mehr als das was man braucht und die Datenhoheit ist oft beim Anbieter der App.
+Bei all den Modernen Frameworks und Programmiersprachen kann das doch nicht so schwer sein, eine eigene App
+zu schreiben, die genau das macht, was man will. Und so entstand die Idee, eine eigene App zu erstellen.
+In dieser Arbeit soll geprüft werden, wie schwer es wirklich ist, eine eigene App zu erstellen und das
+mit sehr begrenzten Vorkenntnissen, viel Trial and Error, unglaublich viel Recherchen, dem
+Einsatz von AI, viel Geduld und etwas bis etwas mehr Unterstützung von einem erfahrenen Entwickler.
+Genau mit dieser Unterstützung wurde dann auch begonnen. Um nicht alles von Grund auf herausfinden zu müssen,
+wurde mit einem Beratungsgespräch begonnen. Dabei wurde die Idee vorgestellt. Es wurde besprochen, welche
+Technologien, Programmiersprachen und Frameworks zielführend, machbar und sinnvoll sind.
+In einem weiteren Termin wurde dann gemeinsam der Server konfiguriert und die Entwicklungsumgebung eingerichtet.
+Ein nicht so kleiner Crashkurs hat dann einen guten Einstieg ins Projekt erleichtert.
 
-\section{Vorprojekt} %%%%%
+\section{Methoden} %%%%%
 
-\subsection{Marktanalyse} %----
+Die App besteht im Wesentlichen aus drei Teilen: Dem webbasierten Frontend, dem Backend Server und der Datenbank.
+Diese drei Teile sind miteinander verbunden und kommunizieren miteinander. Das Frontend ist die Benutzeroberfläche,
+die man auf dem Smartphone zu sehen bekommt. Das Backend ist die Logik, die im Hintergrund abläuft und die Datenbank
+ist der Speicherort für alle Daten, die abgerufen oder gespeichert werden.
 
-Eine Marktanalyse hat ergeben, dass es bereits einige Applikationen gibt, die ähnliche Funktionen
-anbieten. Beispiele dafür sind: \href{https://www.fastfieldforms.com/}{Fastfield},
-\href{https://merginmaps.com/}{Mergin Maps}, \href{https://www.fulcrumapp.com/}{Fulcrum} und 
-diverse mehr. Diese Applikationen sind jedoch meistens sehr teuer und bieten viele Funktionen, die
-für den Anwendungszweck nicht benötigt werden. Dazu kommt im Zusammenhang mit Forschung die
-Problematik der Datensicherheit. In fast allen Fällen werden die Daten auf dem Server des Anbieters
-gespeichert, was für Forschungszwecke nicht immer ideal ist.
+\subsection{Frontend} %%%%%
 
-\subsection{Nutzen für die Anwender} %----
+Das Frontend wurde mit dem Framework Ionic erstellt. Ionic ist ein open source toolkit für die Entwicklung von
+mobile User Interfaces. Es basiert auf Angular, einem weiteren open source Framework, das von Google entwickelt wurde.
+Es ermöglicht die Erstellung von Webanwendungen, die auf allen Plattformen - Android, iOS und Web - laufen und dabei
+eine native App-ähnliche Performance und Erfahrung bieten. \autocite{IonicFrameworkCrossPlatform}
+Das Framework ermöglicht es relativ einfach ein Projekt zu starten und in einer Entwicklungsumgebung zu testen.
+Dabei wird die App im Browser angezeigt. Das effektive programmieren geschieht dann in den Programmiersprachen
+HTML, CSS und TypeScript. TypeScript ist eine von Microsoft entwickelte Programmiersprache, die auf JavaScript basiert.
+CSS ist eine Stylesheet-Sprache, die für das Design der Benutzeroberfläche verwendet wird. HTML ist eine Markup-Sprache,
+die für die Struktur der Benutzeroberfläche verwendet wird.
 
-Das Erfassen von georeferenzierten Daten muss nicht mehr mühsam mit Papier und Stift erfolgen - somit
-fällt das spätere Übertragen der Daten in eine digitale Form weg. Dadurch wird die Fehleranfälligkeit
-der Datenerfassung reduziert. Die Daten sind sicher in einer eigenen Datenbank gespeichert und die
-Kontrolle über die Daten bleibt beim Anwender.
+\subsection{Backend} %%%%%
 
-\subsection{Marketingstrategie} %----
+Das Backend wurde mit der Programmiersprache Go erstellt. Go ist eine von Google entwickelte Programmiersprache,
+die für die Entwicklung von Webanwendungen und Servern verwendet wird. Sie ist einfach zu lernen und zu verwenden
+und bietet eine gute Performance \autocite{GoProgrammingLanguage}. Auch soll erwähnt sein, dass GitHub Copilot
+für die Programmiersprache Go ausgezeichnete Vorschläge macht und so das Programmieren massiv erleichtert.
+Die Wesentlichen Logiken, die vom Backend in der App ablaufen sind die Authentifizierung des Benutzers, den Zugriff
+auf die Datenbank um beispielsweise verfügbare User zu prüfen oder die Auswahlmöglichkeiten bei den Tieren abzurufen
+und das Transformieren und Speichern von neuen Daten in der Datenbank.
 
-Die Idee ist es, den Bausatz für die Applikation open-source zu veröffentlichen. Jeder, der in der Lage ist,
-damit selbst eine Applikation zu erstellen, kann dies tun. Für Anwender, die nicht in der Lage sind,
-damit eine für sie massgeschneiderte Applikation zu erstellen, wird ein Service angeboten, bei dem
-die Applikation für sie erstellt wird. Dieser Service wird kostenpflichtig sein und wird nach Aufwand
-verrechnet. Wann immer möglich, soll der Service aber mit den IT Ressourcen der Anwender beziehungsweise
-der Forschungseinrichtung durchgeführt werden. Da das ganze nicht kommerziell ist, wird keine Werbung
-geschaltet. Lediglich sollen potentielle Anwender über die Existenz des Bausatzes und die Möglichkeit
-für Unterstützung informiert werden.
+\subsection{Datenbank} %%%%%
 
-\subsection{Technische Machbarkeit} %----
+Die verwendete Datenbank ist MariaDB. MariaDB ist eine von MySQL abgeleitete relationale Datenbank, die von der
+Open-Source-Community entwickelt wird. Sie ist einfach zu installieren und zu verwenden und bietet eine gute Performance \autocite{MariaDBFoundation}.
+In diesem Fall wurde Docker verwendet, um die Datenbank auf dem Server zu installieren und in einem 
+sogenannten Container zu betreiben. Die Datenbank besteht aus drei Tabellen: User, Animals und Sightings.
 
-Die technische Machbarkeit wurde bereits mittels eines Prototyps überprüft, der eine einfache Applikation
-zur Erfassung von Wildtiersichtungen ermöglicht. Die Technische Machbarkeit auf der Seite der
-Lokalen Anwendung auf dem Smartphone wurde bestätigt. Die Machbarkeit, das ganze in die IT Infrastruktur
-einer Forschungseinrichtung zu integrieren, muss von Fall zu Fall mit den entsprechenden IT-Verantwortlichen
-geklärt werden.
+\section{Resultate} %%%%%
 
-\section{Projekt} %%%%%
-
-\subsection{Name und Branding} %----
-
-Da es sich nicht um ein kommerzielles Projekt handelt, wird auf ein Branding verzichtet. Die Funktionalität
-und die Einfachheit der Applikation sollen im Vordergrund stehen. Es soll keinerlei Ablenkungen vom
-wesentlichen Zweck der Applikation geben. Ein Name für die Applikation kann natürlich bei jeder Anwendung individuell gewählt werden. 
-Für diesen Prototyp wurde der äusserst kreative Name "Wildtierapp" gewählt.\\
-
-Etwas mehr Kreativität hat die Designabteilung unter der Leitung von Annalisa Berger bei der Gestaltung des Logos
-an den Tag gelegt. Das fertige Logo für die Applikation sieht wie folgt aus: \\
-
-\begin{center}
-  \includegraphics[width=0.3\textwidth]{"logo_app.png"}
-\end{center}
-
-Verschiedene Elemente des wesentlichen Zwecks der Applikation sind im Logo enthalten. Es wird ein Geo-Tag und die Erde als Karten Grid dargestellt
-um den Zweck der georeferenzierten Datenerfassung zu symbolisieren. Der Hirsch und der Adler sind Symbole für die Wildtiere,
-die den Inhalt der Daten repräsentieren. Die Idee ist es, dass für jede Anwendung eine Ableitung
-dieses Logos verwendet werden kann, indem der Hirsch und der Adler durch Symbole ausgetauscht werden, die
-für die spezifische Anwendung relevant sind.
-
-\newpage
-
-\subsection{Prototyp} %----
-
-Der Prototyp ist eine einfache Applikation zur Erfassung von Wildtiersichtungen. Die Applikation
-wird auf einem privaten Server gehostet und die Daten werden in einer Datenbank auf demselben Server gespeichert.\\
-
-Die Applikation kann unter folgendem Link aufgerufen werden - allerdings funktioniert es nur mit dem Google Chrome Browser:\\
-
-\begin{center}
-
-  \includegraphics[width=3cm]{qr_code_app.png}\\
-  \url{https://wildtierapp.juliankraft.ch/app/}
-
-\end{center}
-
-Die erhobenen Daten können unter folgendem Link eingesehen werden:\\
-
-\begin{center}
-
-  \includegraphics[width=3cm]{qr_code_data.png}\\
-  \url{https://wildtierapp.juliankraft.ch/}
-
-\end{center}
-
-Für den effektiven Datenzugriff um diese weiter verarbeiten zu können gibt es einen API Endpunkt um auf die SQL Datenbank zuzugreifen.
+\section{Diskussion} %%%%%
 
 
-\newpage
+\section{Acknowledgements und Deklaration} %%%%%
 
-\subsection{SWOT-Analyse} %----
+Danke an Ramon Ott für die Unterstützung bei der Umsetzung dieses Projektes.
 
-\begin{minipage}{0.5\textwidth}
-  \begin{tcolorbox}[title=Strengths (Stärken), colframe=blue!50!black, colback=blue!10, height=6cm]
-    \begin{itemize}
-        \item Sehr individuell
-        \item einfach und beschränkt auf das Wesentliche
-        \item Absolute Kontrolle über die Daten
-        \item Open-Source
-    \end{itemize}
-  \end{tcolorbox}
-\end{minipage}
-\hfill
-\begin{minipage}{0.5\textwidth}
-  \begin{tcolorbox}[title=Weaknesses (Schwächen), colframe=red!50!black, colback=red!10, height=6cm]
-    \begin{itemize}
-        \item Browser basiert
-        \item Programmierkenntnisse notwendig
-        \item limitierte Funktionalität
-        \item Läuft aktuell noch mit dem Kartenservice von Google (Google Maps)
-    \end{itemize}
-  \end{tcolorbox}
-\end{minipage}
-
-\vspace{1cm}
-
-\begin{minipage}{0.5\textwidth}
-  \begin{tcolorbox}[title=Opportunities (Chancen), colframe=green!50!black, colback=green!10, height=6cm]
-    \begin{itemize}
-        \item Open-Source - andere könnten Funktionalität erweitern und verbessern
-        \item Unabhängigkeit von kommerziellen Anbietern
-        \item Möglichkeit für Forschungseinrichtungen, eigene Applikationen zu erstellen
-    \end{itemize}
-  \end{tcolorbox}
-\end{minipage}
-\hfill
-\begin{minipage}{0.5\textwidth}
-  \begin{tcolorbox}[title=Threats (Gefahren), colframe=orange!50!black, colback=orange!10, height=6cm]
-    \begin{itemize}
-        \item Niemand interessiert sich dafür
-        \item es könnte abschreckend wirken, dass Programmierkenntnisse notwendig sind
-        \item Konkurrenz durch kommerzielle Anbieter
-    \end{itemize}
-  \end{tcolorbox}
-\end{minipage}
-
-\newpage
-
-\section{Umsetzung} %%%%%
-
-\subsection{Zeitplan} %----
-
-Da schon ein Prototyp existiert, kann die Umsetzung relativ schnell erfolgen. Als nächster Schritt wird
-ein konkretes Projekt benötigt, wo tatsächlich georeferenzierte Daten erfasst werden müssen. Die Applikation
-wird dann entsprechend angepasst und erweitert. Die Umsetzung wird in enger Zusammenarbeit mit den
-Anwendern erfolgen, um sicherzustellen, dass die Applikation den Anforderungen entspricht.
-Falls ein Projekt gefunden wird, und das Hosting auf einem Server der Forschungseinrichtung möglich ist,
-oder einer anderen geeigneten Lösung gefunden wurde, kann die Umsetzung in einem Monaten abgeschlossen sein.
-
-\subsection{Budget} %----
-
-Für die Umsetzung eines konkreten Projekts wird der Lohn für einen Programmierer für ca. einen Monat benötigt.
-Dazu kommen noch allfällige Kosten für das Hosting der Applikation. Die Kosten dafür sind gering und
-abhängig von der Laufzeit des Projekts - Server, die das handeln können sind schon für rund 50.-/Monat zu haben.
-Je nach Grösse des Projekts können auch noch Kosten für den
-Kartenservice von Google anfallen - dies kann aber auch umgegangen werden, indem ein anderer Kartenservice
-wie zum Beispiel OpenStreetMap verwendet wird.
-
-\subsection{Ausblick} %----
-
-Da die Applikation open-source ist, besteht die Möglichkeit, dass andere Forschungseinrichtungen
-sie ebenfalls nutzen. Dabei ist zu hoffen, dass die Funktionalität der Applikation durch die
-Beiträge anderer verbessert wird. Es könnten auch neue Funktionalitäten hinzugefügt werden wie zum
-Beispiel die Möglichkeit, Bilder zu den Daten hinzuzufügen.
-
-\section*{Deklaration zu AI Tool Nutzung} %%%%%
+Danke an Annalisa Berger für das Design des Logos.
 
 Zum Erstellen dieses Dokumentes wurde ChatGPT und GitHub copilot verwendet.
 Auch bei der Programmierung des Prototyps kam vie AI zum Einsatz.
