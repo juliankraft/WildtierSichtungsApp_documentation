@@ -11,7 +11,7 @@ title: "WildtierApp - Präsentation"
 * Idee
 * Programmiersprache und Frameworks
 * Prototyp
-* Challanges
+* Challenges
 * Ausblick
 * Acknowledgements
 * Links
@@ -22,7 +22,7 @@ title: "WildtierApp - Präsentation"
 
 ----
 
-Das Kernelement von jedem <span style="display: block;"></span>Geo-Informatik Projekt
+Das Kernelement von jedem <span style="display: block;"></span>Geo-Informatik-Projekt
 
 <img src="images/geodata_collection.webp" style="width: 40%; margin-bottom: -50px;">
 
@@ -80,7 +80,6 @@ WildTierSichtungsApp
 
 <span style="font-size: 0.4em;">*Abbildung: [https://en.m.wikipedia.org/](https://en.m.wikipedia.org/wiki/File:Google_Maps_Logo_2020.svg)*</span>
 
-
 ----
 
 ### Datenbank
@@ -103,7 +102,7 @@ Logo
 
 ----
 
-Datenbank Struktur
+Datenbankstruktur
 
 <img src="images/db_structure.png" style="width: 40%; margin-bottom: -50px;">
 
@@ -111,7 +110,7 @@ Datenbank Struktur
 
 ----
 
-QR Code um die App zu installieren
+QR-Code, um die App zu installieren
 <br>
 <img src="images/qr_code_app.png" style="width: 30%;">
 
@@ -137,11 +136,11 @@ Beispiel für Datenbezug mit Python:
 import mysql.connector
 import json
 
-# Load the database connection details from the JSON file
+# Lade die Datenbankverbindungsdetails aus der JSON-Datei
 with open('./db_setup/db_config.json', 'r') as config_file:
     config = json.load(config_file)
 
-# Connect to the MariaDB database
+# Verbindung zur MariaDB-Datenbank herstellen
 connection = mysql.connector.connect(
     host=config['host'],
     port=config['port'],
@@ -150,7 +149,7 @@ connection = mysql.connector.connect(
     database=config['database']
 )
 
-# Function to fetch data from the database
+# Funktion, um Daten aus der Datenbank abzurufen
 def get_data(statement):
     cursor = connection.cursor()
     try:
@@ -158,25 +157,23 @@ def get_data(statement):
         data = cursor.fetchall()
         return data
     except mysql.connector.Error as e:
-        print(f"Error fetching data: {e}")
+        print(f"Fehler beim Abrufen der Daten: {e}")
     finally:
         cursor.close()
 
-# Fetching data example
+# Datenbeispiel abrufen
 
 data = get_data("SELECT * FROM sichtungen;")
-
-
 ```
 
 ---
 
-## Challanges
+## Challenges
 
 * Neue Programmiersprachen
 * Neue Frameworks
-* Server Konfiguration
-* Datenbank Konfiguration
+* Serverkonfiguration
+* Datenbankkonfiguration
 * Login und Authentifizierung
 
 ---
@@ -189,7 +186,7 @@ Vom Prototyp zur Anwendung - was wäre noch nötig?
 
 ## Acknowledgements
 
-Danke an Ramon Ott für die Unterstützung bei der Umsetung dieses Projekts.
+Danke an Ramon Ott für die Unterstützung bei der Umsetzung dieses Projekts.
 
 Danke an Annalisa Berger für das Design des Logos.
 
@@ -207,4 +204,3 @@ Prototyp:
 GitHub Repos:
 * [Frontend](https://github.com/juliankraft/WildtierSichtungsApp_front)
 * [Backend](https://github.com/juliankraft/WildtierSichtungsApp_back)
-
