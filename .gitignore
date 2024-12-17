@@ -1,3 +1,5 @@
+
+bericht/
 *.pdf
 
 # Ignore output files generated during compilation
