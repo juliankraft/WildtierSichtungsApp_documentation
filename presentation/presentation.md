@@ -185,9 +185,9 @@ Vom Prototyp zur Anwendung - was wäre noch nötig?
 ---
 
 ## Acknowledgements
-
+<br>
 Danke an Ramon Ott für die Unterstützung bei der Umsetzung dieses Projekts.
-
+<br><br>
 Danke an Annalisa Berger für das Design des Logos.
 
 ---
