@@ -1,0 +1,61 @@
+
+bericht/
+*.pdf
+
+# Ignore output files generated during compilation
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.dvi
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xwm
+
+# Ignore editor-specific files
+*.swp
+*.swo
+*~
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.sav
+*.backup
+*.synctex(busy)
+
+# Ignore BibTeX auxiliary files
+*.bbl
+*.blg
+*.bib.bak
+
+# Ignore build directories
+_build/
+latex.out/
+temp/
+tmp/
+
+# Ignore project-specific folders
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.glsdefs
+*.idx
+*.ilg
+*.ind
+*.mw
