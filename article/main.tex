@@ -102,7 +102,7 @@ urlcolor=black
 
 % Add the running author and running title information
 \runningauthor{\begin{minipage}{.9\textwidth}\centering Julian Kraft\end{minipage}}
-\runningtitle{Wildlife sightings WebApp}
+\runningtitle{Wildlife sightings -- a WebApp}
 
 % Document begins
 \begin{document}
@@ -118,15 +118,32 @@ urlcolor=black
 \maketitle
 
 % Add 5-10 keywords for every submission
-\keywords{web application, wildlife sightings, geodata, field recording, web frameworks}
+\keywords{
+    web application development, 
+    wildlife monitoring, 
+    geospatial data, 
+    user authentication, 
+    frontend frameworks, 
+    backend programming, 
+    database management, 
+    rest api integration, 
+    mobile web apps, 
+    ionic and angular frameworks
+    }
 
 % Add a short abstract of 150-250 words
 \begin{abstract}
-The aim of this semester project is to assess the accessability of the technology to create a web application to record geo tagged data.
-With the help of modern web frameworks, a web application was built to record wildlife sightings. A working prototype was created and and made
-available online with the option to install it on smartphones of all major operating systems.
-The project was a success and the technology is accessible to everyone with a bit more than basic programming knowledge, some help and some 
-insane persistence.
+
+The project aimed to evaluate the accessibility of modern technology for creating a web application 
+that records geotagged data. Using modern web frameworks, a prototype was developed to document wildlife sightings. 
+This application, accessible online and installable on smartphones across major operating systems, 
+exemplifies how a straightforward and purpose-driven tool can be built with moderate programming knowledge, 
+guided support, and persistence. The project's workflow encompassed backend development in Go, 
+frontend design with the Ionic framework, and database integration using MariaDB. Additionally, 
+the system incorporates a public data visualization tool and REST API for broader access. 
+While the project highlights the potential of current technologies and AI-powered tools like GitHub Copilot, 
+it underscores challenges in managing interconnected components. The result is a versatile platform, 
+demonstrating both the promise and complexity of custom web application development for geospatial data collection.
 
 \end{abstract}
 
@@ -164,6 +181,9 @@ and the database. These three components are interconnected and communicate with
 The frontend is the user interface displayed on the smartphone, 
 the backend handles the logic running in the background, 
 and the database serves as the storage location for all data that is retrieved or saved.
+There is a separated frontend component, a static page,
+for the data view which is publicly available and can be accessed via a web browser.
+
 
 \subsection{Frontend}
 
@@ -174,7 +194,14 @@ offering native app-like performance and experience \cite{IonicFrameworkCrossPla
 The framework makes it relatively easy to start a project and test it in a development environment, 
 where the app is displayed in the browser. The actual programming is done using the programming 
 languages HTML, CSS, and TypeScript. TypeScript is a programming language developed by Microsoft that is based on JavaScript. 
-CSS is a stylesheet language used for designing the user interface, while HTML is a markup language used for structuring the user interface.
+CSS is a stylesheets language used for designing the user interface, while HTML is a markup language used for structuring the user interface.
+
+There are two main pages implemented in the frontend. The home page dealing with user authentication and 
+the animals page where the user can input data. The home page is the first page displayed when the app is opened.
+There ist two options: to create a user or to log in. Upon successful authentication the user is directed to the
+animals page. Here there is a stepper at work in the background. Upon completion of a step, the stepper is increased
+by one triggering a different view for the next step. This is all handled by the frontend itself. Only fetching and saving
+data are handled by the backend.
 
 \subsection{Backend}
 
@@ -185,6 +212,10 @@ It is also worth mentioning that GitHub Copilot provides excellent suggestions f
 the Go programming language, which significantly simplifies programming. The main logic handled 
 by the backend in the app includes user authentication, accessing the database to check for available 
 users or retrieve options for animals, and transforming and saving new data in the database.
+
+It is structured into a few files. There is the main file \texttt{main.go} where the server is started and the routes are defined.
+And there are three different handlers files to handle processes concerning login, animal sightings and the requests of the static
+page for the data view.
 
 \subsection{Database}
 
@@ -222,10 +253,12 @@ So for future use cases the logo can be easily adjusted to fit the new content.
 
 \section{Results}
 
+The app was successfully developed and deployed. It will be available for a few months after the submission of this report.
+It seems a bit pointless to describe the app in detail here, as it is available online and can be tested by anyone.
+This part of the report will therefore be kept short. The actual use of the app is supposed to be experienced by the user.
+
 \subsection{Web Application}
 
-The app was successfully developed and deployed. And will be available for a few months after the submission of this report.
-It seems a bit pointless to describe the app in detail here, as it is available online and can be tested by anyone.
 To install the app on a smartphone just use the qr code in Figure~\ref{fig:qr_code_app} or visit 
 the website \url{https://wildtierapp.juliankraft.ch/app/}. On opening the page a prompt will suggest the installation of the app.
 It works best using the Google Chrome browser. In order for the app to work, location services must be enabled on the smartphone
@@ -296,13 +329,14 @@ I would like to express my gratitude to Ramon Ott -- the experienced developer -
 Without his help, this project would not have been possible.
 I very much appreciate the help of my fellow student Annalisa Berger for her great work on the design of the logo for the application.
 
-\section*{Declarations}
+\section*{AI Declarations}
 
 The creation of this document was supported by ChatGPT and GitHub Copilot. 
 Additionally, AI played a significant role in the development of the prototype.
 The Introduction and the Methods section where translated from German to English using
-ChatGPT since they where written before realizing that this report had to follow the JOSIS template
-specifically defining the language.
+ChatGPT since they where written before realizing, this report had to follow the JOSIS template,
+specifically defining the language. The abstract was initially generated by ChatGPT
+and than edited by the author.
 
 \bibliographystyle{josisacm}
 \bibliography{josisexample}
