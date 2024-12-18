@@ -1,6 +1,7 @@
 
 bericht/
 *.pdf
+!report.pdf
 
 # Ignore output files generated during compilation
 *.aux
