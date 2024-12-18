@@ -22,8 +22,13 @@ demonstrating both the promise and complexity of custom web application developm
 
 ### Repository Content
 
-This reository contains the code for report of the projext written in LaTeX using the template of the jurnal JOSIS in the folder `report`. And the code for creating
-the presentation using the reveal.js framework in the folder `presentation`.
+This reository contains the code for report of the projext written in LaTeX using the template of the jurnal JOSIS in the folder `report`. And the code for creating the presentation using the reveal.js framework in the folder `presentation`.
+
+### Repository Structure
+
+presentation/        # Source files for the presentation
+report/              # Source files for the report
+README.md            # Repository documentation
 
 ### Additional Resources:
 
