@@ -262,6 +262,34 @@ be used by anyone to do whatever under the creative commons license CC0 1.0 Univ
 
 \section{Discussion}
 
+It seems that the technology to create a web application to record geo tagged data is accessible to everyone with a bit more than basic programming knowledge,
+some help and some insane persistence. The app was successfully developed and deployed. The data view was created and the data can be accessed via a REST API.
+Still it was a real struggle to get to this point and the hours put into this project are countless. The technology is accessible but the learning curve is steep.
+It is hard to determine if the accessability is more a result of modern frameworks or the fast improving AI tools like GitHub Copilot and ChatGPT.
+
+The biggest challenge was to keep an overview of all the components and how they interact with each other. For every part of the app there are countless
+files and modules somehow connected to each other. Especially the frontend was a real struggle. After the simple command \texttt{ionic start} and
+taking a few initial decisions, the project folder initiated by the framework is already filled with a lot of files and folders rather cryptic to a beginner. While AI is
+very strong in writing functions or limited parts of the code it is not very helpful in keeping an overview of the whole project.
+That seems to be where the real challenge lies.
+
+\subsection{Next Steps}
+
+The App is at this point a working prototype. A first step would be to further clean up the code and make it more readable before adding more to it.
+There are a few things that would need some more work. A especially important one would be the spatial data and its accuracy.
+Questions to follow up on would be: Is there a way to maximize the accuracy of the phone location? 
+How to handle the accuracy of the manually imputed location?
+An other important thing to work on would be the app control elements. While the idea was to keep the app as simple as possible,
+a bit more control would be nice. For example the possibility to go back to the previous screen to change the input.
+A data view within the app could be a nice feature especially the option to delete data points
+in order for the user to correct mistakes.
+
+In order for this things to be implemented and the project being taken further, an actual use case would be needed.
+It can be a bit frustrating to work on a project, intense like this one, without a real use case.
+With an actual use case there would be a clear goal and therefore a clear path to follow. For example the
+data structure would not be as generic and some real considerations there could improve the app.
+An other very important thing provided by a real use case would be an actual user group testing the app.
+
 \section*{Acknowledgments}
 
 I would like to express my gratitude to Ramon Ott -- the experienced developer -- for his help and support during this project. 
