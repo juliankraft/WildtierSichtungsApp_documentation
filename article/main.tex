@@ -104,15 +104,12 @@ urlcolor=black
 \runningauthor{\begin{minipage}{.9\textwidth}\centering Julian Kraft\end{minipage}}
 \runningtitle{Wildlife sightings -- a WebApp}
 
-% Document begins
 \begin{document}
 %\setcounter{page}{33}
 
+\title{A Web Application for Wildlife Sightings - How Accessible Is This Technology Using Modern Frameworks?}
 
-% Insert your own title
-\title{A Web Application for Wildlife Sightings - how accessible is this technology using modern frameworks?}
-
-% Insert your manuscipts authors, affiliations, and addresses
+% Insert your manuscript authors, affiliations, and addresses
 \author{Julian Kraft}\affil{LSFM, ZHAW, Switzerland}
 
 \maketitle
@@ -160,12 +157,12 @@ and control over the data often lies with the app provider. With all the modern 
 and programming languages available today, it should not be that difficult to write a 
 custom app that does exactly what is required.
 And so, the idea to create a custom app was born.
-In this case an example to record wildlife sightings was chosen as the use case.
-The general idea is to create an individual toolkit from wich future use cases can be derived. 
+In this case, an example to record wildlife sightings was chosen as the use case.
+The general idea is to create an individual toolkit from which future use cases can be derived. 
 This work aims to examine just how challenging it really is to develop an app, 
 particularly with very limited prior knowledge, a lot of trial and error, 
 extensive research, the use of AI, immense patience, 
-and a bit to significantly more support from an experienced developer.
+and significantly more support from an experienced developer.
 
 It was with this support that the project began. To avoid having to figure everything out from scratch, 
 the process started with a consultation. During this meeting, the idea was presented, 
@@ -181,9 +178,8 @@ and the database. These three components are interconnected and communicate with
 The frontend is the user interface displayed on the smartphone, 
 the backend handles the logic running in the background, 
 and the database serves as the storage location for all data that is retrieved or saved.
-There is a separated frontend component, a static page,
+There is a separate frontend component, a static page,
 for the data view which is publicly available and can be accessed via a web browser.
-
 
 \subsection{Frontend}
 
@@ -196,11 +192,11 @@ where the app is displayed in the browser. The actual programming is done using 
 languages HTML, CSS, and TypeScript. TypeScript is a programming language developed by Microsoft that is based on JavaScript. 
 CSS is a stylesheets language used for designing the user interface, while HTML is a markup language used for structuring the user interface.
 
-There are two main pages implemented in the frontend. The home page dealing with user authentication and 
+There are two main pages implemented in the frontend. The home page deals with user authentication and 
 the animals page where the user can input data. The home page is the first page displayed when the app is opened.
-There ist two options: to create a user or to log in. Upon successful authentication the user is directed to the
+There are two options: to create a user or to log in. Upon successful authentication, the user is directed to the
 animals page. Here there is a stepper at work in the background. Upon completion of a step, the stepper is increased
-by one triggering a different view for the next step. This is all handled by the frontend itself. Only fetching and saving
+by one, triggering a different view for the next step. This is all handled by the frontend itself. Only fetching and saving
 data are handled by the backend.
 
 \subsection{Backend}
@@ -214,7 +210,7 @@ by the backend in the app includes user authentication, accessing the database t
 users or retrieve options for animals, and transforming and saving new data in the database.
 
 It is structured into a few files. There is the main file \texttt{main.go} where the server is started and the routes are defined.
-And there are three different handlers files to handle processes concerning login, animal sightings and the requests of the static
+And there are three different handler files to handle processes concerning login, animal sightings, and the requests of the static
 page for the data view.
 
 \subsection{Database}
@@ -241,10 +237,10 @@ which can then be accessed using a MapID. Configurations regarding the appearanc
 
 \subsection{Design}
 
-The design of the app is really quite simple. In general it just uses the default styling of the Ionic framework with very minor adjustments.
-The only patt where some effort was put in was the logo. The logo was designed by a fellow student and is shown in Figure~\ref{fig:logo}.
-The idea is to vertically show the general purpose of recording geo tagged data. Horizontally it symbolizes the data content of the app.
-So for future use cases the logo can be easily adjusted to fit the new content.
+The design of the app is really quite simple. In general, it just uses the default styling of the Ionic framework with very minor adjustments.
+The only part where some effort was put in was the logo. The logo was designed by a fellow student and is shown in Figure~\ref{fig:logo}.
+The idea is to vertically show the general purpose of recording geo-tagged data. Horizontally it symbolizes the data content of the app.
+So for future use cases, the logo can be easily adjusted to fit the new content.
 \begin{figure}[tbh]
     \centering
     \includegraphics[width=0.4\textwidth]{images/logo_app.png}
@@ -259,7 +255,7 @@ This part of the report will therefore be kept short. The actual use of the app 
 
 \subsection{Web Application}
 
-To install the app on a smartphone just use the qr code in Figure~\ref{fig:qr_code_app} or visit 
+To install the app on a smartphone just use the QR code in Figure~\ref{fig:qr_code_app} or visit 
 the website \url{https://wildtierapp.juliankraft.ch/app/}. On opening the page a prompt will suggest the installation of the app.
 It works best using the Google Chrome browser. In order for the app to work, location services must be enabled on the smartphone
 and the app must be granted access to the location.
@@ -278,9 +274,9 @@ accessed at \url{https://wildtierapp.juliankraft.ch/}. This works best using the
 \subsection{Data Access}
 
 This data view is only a frontend to display the data. In order to access the data for further processing, a REST API was created.
-A python script to access the data and a config file for a read only user is available on the GitHub repository 
+A Python script to access the data and a config file for a read-only user is available on the GitHub repository 
 for the backend under \path{./db_setup/}.
-Feel free to use this script to and config file to access the data for testing. However the data is not valid since it was created for testing purposes only
+Feel free to use this script and config file to access the data for testing. However, the data is not valid since it was created for testing purposes only
 and anyone testing the app can add random data to the database.
 
 \subsection{Code Base}
@@ -290,38 +286,38 @@ All the code for the app is publicly available on GitHub:
     \item Backend: \url{https://github.com/juliankraft/WildtierSichtungsApp_back}
 \end{itemize}
 
-It is worth mentioning that the code is not perfect -- at this point it is not more than a working prototype. Still the code is open source and can
+It is worth mentioning that the code is not perfect -- at this point, it is not more than a working prototype. Still, the code is open source and can
 be used by anyone to do whatever under the creative commons license CC0 1.0 Universal.
 
 \section{Discussion}
 
-It seems that the technology to create a web application to record geo tagged data is accessible to everyone with a bit more than basic programming knowledge,
-some help and some insane persistence. The app was successfully developed and deployed. The data view was created and the data can be accessed via a REST API.
-Still it was a real struggle to get to this point and the hours put into this project are countless. The technology is accessible but the learning curve is steep.
-It is hard to determine if the accessability is more a result of modern frameworks or the fast improving AI tools like GitHub Copilot and ChatGPT.
+It seems that the technology to create a web application to record geo-tagged data is accessible to everyone with a bit more than basic programming knowledge,
+some help, and some insane persistence. The app was successfully developed and deployed. The data view was created and the data can be accessed via a REST API.
+Still, it was a real struggle to get to this point, and the hours put into this project are countless. The technology is accessible, but the learning curve is steep.
+It is hard to determine if the accessibility is more a result of modern frameworks or the fast-improving AI tools like GitHub Copilot and ChatGPT.
 
-The biggest challenge was to keep an overview of all the components and how they interact with each other. For every part of the app there are countless
+The biggest challenge was to keep an overview of all the components and how they interact with each other. For every part of the app, there are countless
 files and modules somehow connected to each other. Especially the frontend was a real struggle. After the simple command \texttt{ionic start} and
 taking a few initial decisions, the project folder initiated by the framework is already filled with a lot of files and folders rather cryptic to a beginner. While AI is
-very strong in writing functions or limited parts of the code it is not very helpful in keeping an overview of the whole project.
+very strong in writing functions or limited parts of the code, it is not very helpful in keeping an overview of the whole project.
 That seems to be where the real challenge lies.
 
 \subsection{Next Steps}
 
-The App is at this point a working prototype. A first step would be to further clean up the code and make it more readable before adding more to it.
-There are a few things that would need some more work. A especially important one would be the spatial data and its accuracy.
+The App is, at this point, a working prototype. A first step would be to further clean up the code and make it more readable before adding more to it.
+There are a few things that would need some more work. An especially important one would be the spatial data and its accuracy.
 Questions to follow up on would be: Is there a way to maximize the accuracy of the phone location? 
-How to handle the accuracy of the manually imputed location?
-An other important thing to work on would be the app control elements. While the idea was to keep the app as simple as possible,
-a bit more control would be nice. For example the possibility to go back to the previous screen to change the input.
+How to handle the accuracy of the manually input location?
+Another important thing to work on would be the app control elements. While the idea was to keep the app as simple as possible,
+a bit more control would be nice. For example, the possibility to go back to the previous screen to change the input.
 A data view within the app could be a nice feature especially the option to delete data points
 in order for the user to correct mistakes.
 
-In order for this things to be implemented and the project being taken further, an actual use case would be needed.
+In order for these things to be implemented and the project being taken further, an actual use case would be needed.
 It can be a bit frustrating to work on a project, intense like this one, without a real use case.
-With an actual use case there would be a clear goal and therefore a clear path to follow. For example the
+With an actual use case, there would be a clear goal and therefore a clear path to follow. For example, the
 data structure would not be as generic and some real considerations there could improve the app.
-An other very important thing provided by a real use case would be an actual user group testing the app.
+Another very important thing provided by a real use case would be an actual user group testing the app.
 
 \section*{Acknowledgments}
 
@@ -333,10 +329,10 @@ I very much appreciate the help of my fellow student Annalisa Berger for her gre
 
 The creation of this document was supported by ChatGPT and GitHub Copilot. 
 Additionally, AI played a significant role in the development of the prototype.
-The Introduction and the Methods section where translated from German to English using
-ChatGPT since they where written before realizing, this report had to follow the JOSIS template,
+The Introduction and the Methods section were translated from German to English using
+ChatGPT since they were written before realizing, this report had to follow the JOSIS template,
 specifically defining the language. The abstract was initially generated by ChatGPT
-and than edited by the author.
+and then edited by the author.
 
 \bibliographystyle{josisacm}
 \bibliography{josisexample}
