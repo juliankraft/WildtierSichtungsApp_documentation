@@ -67,10 +67,6 @@ WildTierSichtungsApp
 
 ----
 
-## Programmiersprache und Frameworks
-
-----
-
 ### Frontend
 
 <img src="images/ionic.png" style="width: 70%; margin-bottom: -50px;">
